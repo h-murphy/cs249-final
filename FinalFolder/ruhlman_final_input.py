@@ -293,11 +293,12 @@ def index():
     graphJSON = []
     graphJSON = make_bar_chart('test')
     ids = ["Department Work vs. Perceptions"]
+    inputText = "testing"
     if request.method == 'POST':
             inputText = request.form['inputText']
             graphJSON = make_bar_chart(inputText)
     return render_template('index.html',
-                           graphJSON=graphJSON,
+                           graphJSON=graphJSON, inputText=inputText,
                            ids=ids) #data = ruhlman_data.to_html())
                            
 @app.route('/inputText', methods=['GET', 'POST'])
@@ -306,12 +307,13 @@ def indexInput():
     ids = []
     graphJSON = []
     graphJSON = make_bar_chart('test')
+    inputText = "testing"
     ids = ["Department Work vs. Perceptions"]
     if request.method == 'POST':
             inputText = request.form['inputText']
             graphJSON = make_bar_chart(inputText)
     return render_template('index.html',
-                           graphJSON=graphJSON,
+                           graphJSON=graphJSON, inputText=inputText,
                            ids=ids) #data = ruhlman_data.to_html())
 
 
